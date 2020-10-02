@@ -30,11 +30,13 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 
+# Build HTML pages. This is the default builder.
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+# Build HTML pages, but with a single directory per document. Makes for prettier URLs (no .html) if served from a webserver.
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
@@ -50,12 +52,14 @@ json:
 	@echo
 	@echo "Build finished; now you can process the JSON files."
 
+# Build HTML files with additional information for building a documentation collection in one of these formats.
 htmlhelp:
 	$(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(BUILDDIR)/htmlhelp
 	@echo
 	@echo "Build finished; now you can run HTML Help Workshop with the" \
 	      ".hhp project file in $(BUILDDIR)/htmlhelp."
 
+# Build HTML files with additional information for building a documentation collection in one of these formats.
 qthelp:
 	$(SPHINXBUILD) -b qthelp $(ALLSPHINXOPTS) $(BUILDDIR)/qthelp
 	@echo
@@ -65,6 +69,7 @@ qthelp:
 	@echo "To view the help file:"
 	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/Doctrine2Migrations.qhc"
 
+# Build LaTeX sources that can be compiled to a PDF document using pdflatex.
 latex:
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
@@ -77,12 +82,14 @@ changes:
 	@echo
 	@echo "The overview file is in $(BUILDDIR)/changes."
 
+# Check the integrity of all external links.
 linkcheck:
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 	      "or in $(BUILDDIR)/linkcheck/output.txt."
 
+# Run all doctests in the documentation, if the doctest extension is enabled.
 doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
